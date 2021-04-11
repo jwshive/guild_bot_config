@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Guild extends Model {
     /**
@@ -12,17 +10,22 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
     }
-  };
-  Guild.init({
-    guildName: DataTypes.STRING,
-    guildRealm: DataTypes.STRING,
-    guildPublicChannel: DataTypes.STRING,
-    guildPrivateChannel: DataTypes.STRING,
-    guildRaiderIO: DataTypes.STRING,
-    guildWarcraftLogs: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'Guild',
-  });
+  }
+  Guild.init(
+    {
+      guildName: DataTypes.STRING,
+      guildRealm: DataTypes.STRING,
+      guildPublicChannel: DataTypes.STRING,
+      guildPrivateChannel: DataTypes.STRING,
+      guildRaiderIO: DataTypes.STRING,
+      guildWarcraftLogs: DataTypes.STRING,
+      guildGuestRole: DataTypes.STRING,
+      purgeAfterDays: DataTypes.INTEGER,
+    },
+    {
+      sequelize,
+      modelName: "Guild",
+    }
+  );
   return Guild;
 };

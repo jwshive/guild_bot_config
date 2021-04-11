@@ -1,42 +1,48 @@
-'use strict';
+"use strict";
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Guilds', {
+    await queryInterface.createTable("Guilds", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       guildName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       guildRealm: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       guildPublicChannel: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       guildPrivateChannel: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       guildRaiderIO: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       guildWarcraftLogs: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+      },
+      guildGuestRole: {
+        type: Sequelize.STRING,
+      },
+      purgeAfterDays: {
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Guilds');
-  }
+    await queryInterface.dropTable("Guilds");
+  },
 };
