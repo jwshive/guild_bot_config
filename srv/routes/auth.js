@@ -3,6 +3,7 @@ const router = express.Router();
 const passport = require("passport");
 
 router.get("/login", passport.authenticate("discord.js"));
+
 router.get(
   "/discord/callback",
   passport.authenticate("discord.js", { failureRedirect: "/" }),

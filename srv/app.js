@@ -4,7 +4,7 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 require("dotenv").config();
 const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
+const keysRouter = require("./routes/keys");
 const authRouter = require("./routes/auth");
 const session = require("express-session");
 const app = express();
@@ -39,6 +39,6 @@ app.use(
 
 app.use("/", indexRouter);
 app.use("/auth", authRouter);
-app.use("/users", usersRouter);
+app.use("/keys", keysRouter);
 
 module.exports = app;

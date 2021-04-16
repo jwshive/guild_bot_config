@@ -1,36 +1,25 @@
 "use strict";
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("Guilds", {
+    await queryInterface.createTable("Keys", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      guildName: {
+      key_instance: {
         type: Sequelize.STRING,
       },
-      guildRealm: {
+      key_holder: {
         type: Sequelize.STRING,
       },
-      guildPublicChannel: {
-        type: Sequelize.STRING,
-      },
-      guildPrivateChannel: {
-        type: Sequelize.STRING,
-      },
-      guildRaiderIO: {
-        type: Sequelize.STRING,
-      },
-      guildWarcraftLogs: {
-        type: Sequelize.STRING,
-      },
-      guildGuestRole: {
-        type: Sequelize.STRING,
-      },
-      purgeAfterDays: {
+      key_level: {
         type: Sequelize.INTEGER,
+      },
+      key_completed: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
       },
       createdAt: {
         allowNull: false,
@@ -43,6 +32,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("Guilds");
+    await queryInterface.dropTable("Keys");
   },
 };

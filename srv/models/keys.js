@@ -1,7 +1,7 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Guild extends Model {
+  class Keys extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,21 +11,17 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Guild.init(
+  Keys.init(
     {
-      guildName: DataTypes.STRING,
-      guildRealm: DataTypes.STRING,
-      guildPublicChannel: DataTypes.STRING,
-      guildPrivateChannel: DataTypes.STRING,
-      guildRaiderIO: DataTypes.STRING,
-      guildWarcraftLogs: DataTypes.STRING,
-      guildGuestRole: DataTypes.STRING,
-      purgeAfterDays: DataTypes.INTEGER,
+      key_instance: DataTypes.STRING,
+      key_holder: DataTypes.STRING,
+      key_level: DataTypes.INTEGER,
+      key_completed: { type: DataTypes.BOOLEAN, defaultValue: false },
     },
     {
       sequelize,
-      modelName: "Guild",
+      modelName: "Keys",
     }
   );
-  return Guild;
+  return Keys;
 };

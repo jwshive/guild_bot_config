@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { Guilds } = require("../models");
+const { Keys } = require("../models");
 
 /* GET home page. */
 router.get("/", (req, res) => {
@@ -8,8 +8,8 @@ router.get("/", (req, res) => {
     res.redirect("/auth/login");
   } else {
     // Get current guilds in database.
-    Guilds.findAll().then((guilds) =>
-      res.status(200).json({ user: req.session.user.username, guilds: guilds })
+    Keys.findAll().then((keys) =>
+      res.status(200).json({ user: req.session.user.username, keys: keys })
     );
   }
 });
@@ -23,8 +23,8 @@ router.get("/add", (req, res) => {
 });
 
 router.post("/add", (req, res) => {
-  // Store Guild in DB
-  Guilds.create(req.body).then(res.redirect("/"));
+  // Store Key in DB
+  Keys.create(req.body).then(res.redirect("/keys"));
 });
 
 module.exports = router;
