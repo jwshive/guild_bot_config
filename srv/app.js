@@ -10,17 +10,10 @@ const session = require("express-session");
 const app = express();
 const passportSetup = require("./config/passport-setup");
 const passport = require("passport");
-//const sequelize = require("./config/database");
 
 // Passport
 app.use(passport.initialize());
 app.use(passport.session());
-
-// Database Init
-// sequelize
-//   .authenticate()
-//   .then(console.log("Postgres, ONLINE"))
-//   .catch((error) => console.error(error));
 
 // Express
 app.use(logger("dev"));

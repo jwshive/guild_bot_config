@@ -11,6 +11,7 @@ router.get(
     console.log("Adding req.session.user to req.user");
     req.session.user = req.user;
     console.log(`Req.session.user is ${req.user}`);
+    //res.req.user is the discord object with username, guilds
     res.redirect("/");
   }
 );
